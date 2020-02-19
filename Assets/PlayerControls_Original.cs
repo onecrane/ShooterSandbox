@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControls : MonoBehaviour
+public class PlayerControls_Original : MonoBehaviour
 {
 
     public float lateralSpeed = 8.0f;
@@ -14,8 +14,7 @@ public class PlayerControls : MonoBehaviour
 
     public Transform leftCannon, rightCannon;
 
-    // Editor-assigned
-    public ObjectPool projectilePool;
+    public GameObject basicProjectile;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +61,10 @@ public class PlayerControls : MonoBehaviour
 
     void FireShots()
     {
-        GameObject leftShot = projectilePool.GetFromPool();
+        GameObject leftShot = Instantiate(basicProjectile);
         leftShot.transform.position = leftCannon.position;
 
-        GameObject rightShot = projectilePool.GetFromPool();
+        GameObject rightShot = Instantiate(basicProjectile);
         rightShot.transform.position = rightCannon.position;
     }
 }

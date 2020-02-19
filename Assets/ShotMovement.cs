@@ -18,6 +18,17 @@ public class ShotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > maxZ || transform.position.z < minZ) Destroy(this.gameObject);
+        if (transform.position.z > maxZ || transform.position.z < minZ)
+        {
+            PoolMember poolMember = GetComponent<PoolMember>();
+            if (poolMember == null)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                poolMember.Repool();
+            }
+        }
     }
 }
