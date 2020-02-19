@@ -24,10 +24,8 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < objectsInPool; i++)
         {
             GameObject pooledObject = Instantiate(prefab);
+            AddToPool(pooledObject);
             pooledObject.GetComponent<PoolMember>().pool = this;
-            pooledObject.SetActive(false);
-            pooledObject.transform.parent = transform;
-            pool.Enqueue(pooledObject);
         }
     }
 
@@ -39,17 +37,18 @@ public class ObjectPool : MonoBehaviour
         GameObject next = pool.Dequeue();
         next.transform.parent = null;
         next.SetActive(true);
+
         return next;
     }
 
 
     // Anything using this pool for objects should use this method
     // instead of calling Destroy, so that the object is recycled.
-    public void ReturnToPool(GameObject o)
+    public void AddToPool(GameObject o)
     {
+        pool.Enqueue(o);
         o.transform.parent = transform;
         o.SetActive(false);
-        pool.Enqueue(o);
     }
 
 }

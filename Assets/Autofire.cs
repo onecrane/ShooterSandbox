@@ -13,10 +13,16 @@ public class Autofire : MonoBehaviour
 
     public LevelConveyor levelController;
 
+    private ObjectPool enemyShotPool;
+
     // Start is called before the first frame update
     void Start()
     {
         levelController = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelConveyor>();
+
+        GameObject enemyShotPoolGameObject = GameObject.FindGameObjectWithTag("EnemyProjectilePool");
+        enemyShotPool = enemyShotPoolGameObject.GetComponent<ObjectPool>();
+
     }
 
     // Update is called once per frame
@@ -40,7 +46,13 @@ public class Autofire : MonoBehaviour
 
     void FireShots()
     {
-        GameObject shot = Instantiate(projectile, cannon);
+
+        Debug.Log("Autofire.FireShots");
+        GameObject shot = enemyShotPool.GetFromPool(); // Instantiate(projectile, cannon);
+
+        shot.transform.position = cannon.position;
+        shot.transform.forward = cannon.forward;
+
         shot.transform.parent = null;
 //        shot.transform.position = cannon.position;
     }

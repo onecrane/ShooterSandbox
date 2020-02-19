@@ -22,6 +22,6 @@ public class PoolMember : MonoBehaviour
     // To be used in place of Destroy()
     public void Repool()
     {
-        pool.ReturnToPool(this.gameObject);
+        pool.AddToPool(this.gameObject);
     }
 }

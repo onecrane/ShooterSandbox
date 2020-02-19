@@ -774,6 +774,51 @@ MonoBehaviour:
   projectile: {fileID: 7811237681634687146, guid: c340d1e2912981444a03b02acfed94c3,
     type: 3}
   levelController: {fileID: 0}
+--- !u!1 &906340401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906340403}
+  - component: {fileID: 906340402}
+  m_Layer: 0
+  m_Name: EnemyProjectilePool
+  m_TagString: EnemyProjectilePool
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &906340402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906340401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6eb711fee5c8846a6bb4326ff1543b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  objectsInPool: 50
+--- !u!4 &906340403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906340401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5453887, y: 6.8636093, z: 10.575613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308113452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3926645190795360344, guid: 0f7a19a09afb10f4a8dcd5b540cd4821,
@@ -1079,7 +1124,7 @@ GameObject:
   - component: {fileID: 1705735735}
   - component: {fileID: 1705735736}
   m_Layer: 0
-  m_Name: ProjectilePool
+  m_Name: PlayerProjectilePool
   m_TagString: ProjectilePool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,8 +1156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6eb711fee5c8846a6bb4326ff1543b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2116544422476131645, guid: c9406dbcbfd51ed479dd6685c4c6ae41, type: 3}
-  objectsInPool: 20
+  prefab: {fileID: 0}
+  objectsInPool: 8
 --- !u!1001 &1859606816
 PrefabInstance:
   m_ObjectHideFlags: 0

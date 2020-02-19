@@ -18,6 +18,16 @@ public class DestroyOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+
+        PoolMember poolMember = GetComponent<PoolMember>();
+        if (poolMember == null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            poolMember.Repool();
+        }
+
     }
 }

@@ -6,8 +6,6 @@ public class ShotMovement : MonoBehaviour
 {
 
     public float shotSpeed = 100f;
-    public float maxZ = 83;
-    public float minZ = -20;
 
     // Start is called before the first frame update
     void Start()
@@ -18,17 +16,21 @@ public class ShotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > maxZ || transform.position.z < minZ)
+
+        if (!this.GetComponent<MeshRenderer>().isVisible)
         {
             PoolMember poolMember = GetComponent<PoolMember>();
             if (poolMember == null)
             {
+                Debug.Log("Simple destroy on " + this.name);
                 Destroy(this.gameObject);
             }
             else
             {
+                Debug.Log("Repool on " + this.name);
                 poolMember.Repool();
             }
         }
+
     }
 }
